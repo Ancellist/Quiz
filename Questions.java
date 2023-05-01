@@ -1,11 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 public class Questions {
-
+    private static String text;
+    private static char value;
     static List<String> Questions = new ArrayList<>();
     static List<String> AnswerOption = new ArrayList<>();
+
+
+    public Questions(String text, char value){
+        this.text = text;
+        this.value = value;
+    }
 
     public static void startQuestions(){
         System.out.println("Выберите команду");
@@ -20,13 +26,10 @@ public class Questions {
         switch (num){
             case '1' -> help();
             case '2' -> addQuestion();
-            case '3' -> addAnswerOptions();
-
-
+            case '3' -> addAnswerOptions1();
 
         }
     }
-
 
     public static void help(){
         System.out.println("AddQ - Добавить ваш вопрос");
@@ -41,33 +44,24 @@ public class Questions {
         String Question = scanner1.nextLine();
         Questions.add(Question);
         System.out.println("Ваш вопрос: " + "'"+Question +"'"+ " успешно добавлен");
+        addAnswerOptions1();
     }
-    public static void insert(){
+    public static char insert(){
         Scanner scanner = new Scanner(System.in);
-        char num = scanner.next().charAt(0);
+        return scanner.next().charAt(0);
+
     }
-    public static void addAnswerOptions(){
-        System.out.println("Введите варианты ответов");
-        Scanner scanner1 = new Scanner(System.in);
-        Scanner scanner2 = new Scanner(System.in);
-        Scanner scanner3 = new Scanner(System.in);
-        Scanner scanner4 = new Scanner(System.in);
-        System.out.println("Введите 1 вариант ответа");
-        String answerOption1 = scanner1.nextLine();
-        System.out.println("Ваш вариант ответа:"+"'" + answerOption1 + "'" + "успешно добвален");
-        System.out.println("Введите 2 вариант ответа");
-        String answerOption2 = scanner2.nextLine();
-        System.out.println("Ваш вариант ответа:"+"'" + answerOption2 + "'" + "успешно добвален");
-        System.out.println("Введите 3 вариант ответа");
-        String answerOption3 = scanner3.nextLine();
-        System.out.println("Ваш вариант ответа:"+"'" + answerOption3 + "'" + "успешно добвален");
-        System.out.println("Введите 4 вариант ответа");
-        String answerOption4 = scanner4.nextLine();
-        System.out.println("Ваш вариант ответа:"+"'" + answerOption4 + "'" + "успешно добвален");
-        AnswerOption.add(answerOption1);
-        AnswerOption.add(answerOption2);
-        AnswerOption.add(answerOption3);
-        AnswerOption.add(answerOption4);
+
+    public static void addAnswerOptions1(){
+        System.out.println("Введите варианты ответов к вашему вопросу");
+        for (int i = 1 ;i <= 4; i++){
+            Scanner scanner1 = new Scanner(System.in);
+            System.out.print("Введите " + i + " вариант ответа: ");
+            String answerOption1 = scanner1.nextLine();
+            System.out.println("Ваш вариант ответа:"+"'" + answerOption1 + "'" + "успешно добавлен");
+            AnswerOption.add(answerOption1);
+        }
     }
+
 
 }

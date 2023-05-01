@@ -7,8 +7,7 @@ public class Main {
             char num = scanner.next().charAt(0);
             Questions.checkOption(num);
 
-
         }while (Questions.insert() != '5');
-        System.out.println("сас");
+        System.out.println("Всё");
     }
 }
